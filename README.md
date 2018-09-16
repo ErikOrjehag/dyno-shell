@@ -1,19 +1,21 @@
-# dyno-shell
+# Setup
 
 `docker build -t dyno:dev .`
 
 source .rosenv in .bashrc
 
-To start dyno dev container afer building image:
+# Using
+
+#### To start dyno dev container afer building image:
 `dyno_create`
 
-More terminals!
+#### More terminals!
 `dn` in new terminal when original terminal is already running
 
-Start container when stopped an open in shell:
+#### Start container when stopped an open in shell:
 `ds` in terminal
 
-Attach to running container without a shell:
+#### Attach to running container without a shell:
 `da` in terminal
 
 
