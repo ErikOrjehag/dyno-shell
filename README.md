@@ -6,7 +6,7 @@ source .rosenv in .bashrc
 
 # Using
 
-#### To start dyno dev container afer building image:
+#### To start dyno dev container after building image:
 `dyno_create`
 
 #### More terminals!
