@@ -1,18 +1,7 @@
 ########################### WORKSPACES #############################
 
 source /opt/ros/kinetic/setup.bash
-
-if [ -v DYNO_ENABLE_CARTOGRAPHER_WS ]; then
-  source ~/cartographer_ws/devel_isolated/setup.bash;
-fi
-
-if [ -v DYNO_ENABLE_CATKIN_WS ]; then
-  source ~/catkin_ws/devel/setup.bash;
-fi
-
-if [ -v DYNO_ENABLE_FAST_WS ]; then
-  source ~/fast_ws/devel/setup.bash;
-fi
+source ~/${DYNO_WS}/devel/setup.bash
 
 ########################### ENVIROMENT #############################
 

@@ -1,8 +1,6 @@
 # Source the base configuration.
 
-unset  DYNO_ENABLE_CARTOGRAPHER_WS
-export DYNO_ENABLE_CATKIN_WS=
-export DYNO_ENABLE_FAST_WS=
+export DYNO_WS="fast_ws"
 
 source ~/Code/dyno-shell/dyno-base.sh
 
