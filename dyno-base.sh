@@ -1,17 +1,24 @@
+########################### WORKSPACES #############################
+
 source /opt/ros/kinetic/setup.bash
 
-# source ~/cartographer_ws/devel_isolated/setup.bash
-# source ~/catkin_ws/devel/setup.bash
-source ~/fast_ws/devel/setup.bash
+if [ -v DYNO_ENABLE_CARTOGRAPHER_WS ]; then
+  source ~/cartographer_ws/devel_isolated/setup.bash;
+fi
+
+if [ -v DYNO_ENABLE_CATKIN_WS ]; then
+  source ~/catkin_ws/devel/setup.bash;
+fi
+
+if [ -v DYNO_ENABLE_FAST_WS ]; then
+  source ~/fast_ws/devel/setup.bash;
+fi
+
+########################### ENVIROMENT #############################
+
 
 export ROS_MASTER_URI="http://localhost:11311"
 export ROS_HOSTNAME="localhost"
-
-#export ROS_MASTER_URI="http://192.168.254.17:11311"
-#export ROS_HOSTNAME="192.168.254.17"
-
-# export ROS_MASTER_URI="http://192.168.0.113:11311"
-# export ROS_HOSTNAME="192.168.0.113"
 
 export GATEWAY_NETWORK_INTERFACE="enp0s25"
 
@@ -29,28 +36,16 @@ export DYNO_DEFAULT_RAPP="dyno_common_rapps/waypoint_navigation"
 #export DYNO_DEFAULT_RAPP="dyno_common_rapps/route_scheduler"
 #export DYNO_DEFAULT_RAPP="dyno_quadrotor_rapps/parcel_delivery"
 
-export ROSCONSOLE_CONFIG_FILE="/home/sam/fast_ws/rosconsole.config"
+export ROSCONSOLE_CONFIG_FILE="~/Code/dyno-shell/rosconsole.config"
 
 export DYNO_HUB_URI="http://192.168.254.17:6380"
 # export DYNO_HUB_URI="http://localhost:6380"
 
-run_rosdep() {
-  rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y -r
-}
 
-sim() {
-  roslaunch dyno_gazebo bringup.launch
-}
 
-blue() {
-  export ROS_MASTER_URI="http://192.168.254.17:11312"
-  export ROS_HOSTNAME="192.168.254.17"
-}
+########################### DOCKER #############################
 
-green() {
-  export ROS_MASTER_URI="http://192.168.254.17:11313"
-  export ROS_HOSTNAME="192.168.254.17"
-}
+
 
 if ! [ -z $CONTAINER_NAME ]; then
   export PS1="($CONTAINER_NAME) $PS1"
@@ -92,3 +87,17 @@ dn() {
   docker exec -it dyno-dev bash
 }
 
+
+
+########################### CATKIN #############################
+
+
+
+dmake() {
+  # $1 can be -j1 for example.
+  ( cd ~/fast_ws && catkin_make $1 )
+}
+
+ddep() {
+  rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -r -y
+}
