@@ -1,6 +1,6 @@
 # Source the base configuration.
 
-export DYNO_WS="fast_ws"
+export DYNO_WS=~/fast_ws
 
 source ~/Code/dyno-shell/dyno-base.sh
 

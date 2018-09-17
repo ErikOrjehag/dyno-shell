@@ -1,7 +1,7 @@
 ########################### WORKSPACES #############################
 
 source /opt/ros/kinetic/setup.bash
-source ~/${DYNO_WS}/devel/setup.bash
+source ${DYNO_WS}/devel/setup.bash
 
 ########################### ENVIROMENT #############################
 
@@ -84,9 +84,9 @@ dn() {
 
 dmake() {
   # $1 can be -j1 for example.
-  ( cd ~/fast_ws && catkin_make $1 )
+  ( cd $DYNO_WS && catkin_make $1 )
 }
 
 ddep() {
-  rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -r -y
+  rosdep install --from-paths ${DYNO_WS}/src --ignore-src --rosdistro=${ROS_DISTRO} -r -y
 }
