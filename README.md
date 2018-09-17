@@ -1,13 +1,15 @@
 # Setup
 
-`docker build -t dyno:dev .`
-
-source .rosenv in .bashrc
+cd docker
+./build.sh
 
 # Using
 
 #### To start dyno dev container after building image:
 `dyno_create`
+
+#### Remove dyno dev container if you want to rebuild and recreate:
+`docker rm dyno-dev`
 
 #### More terminals!
 `dn` in new terminal when original terminal is already running
