@@ -18,8 +18,8 @@ export TURTLEBOT3_MODEL=burger
 export DYNO_BASE="magni"
 export DYNO_BASE_VARIANT="sign"
 
-#export DYNO_USE_ROS_CONTROL_FOR_BASE="false" 
-export DYNO_USE_ROS_CONTROL_FOR_BASE="true" 
+#export DYNO_USE_ROS_CONTROL_FOR_BASE="false"
+export DYNO_USE_ROS_CONTROL_FOR_BASE="true"
 
 export DYNO_DEFAULT_RAPP="dyno_common_rapps/waypoint_navigation"
 #export DYNO_DEFAULT_RAPP="dyno_common_rapps/route_scheduler"
@@ -57,7 +57,7 @@ dyno_create() {
   -v "/home/$USER/:/home/$USER/" \
   --device=/dev/dri:/dev/dri \
   --name=dyno-dev \
-  dyno:dev	
+  dyno:dev
 }
 
 dyno_remove() {
