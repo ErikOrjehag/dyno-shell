@@ -1,10 +1,19 @@
 ########################### WORKSPACES #############################
+file="/opt/ros/kinetic/setup.bash"
+if [ -f "$file" ]
+then
+  source "$file"
+fi
+
 if ! [ -z $CONTAINER_NAME ]; then
   source /dyno_entrypoint.sh
 fi
 
-source /opt/ros/kinetic/setup.bash
-source ${DYNO_WS}/devel/setup.bash
+file="${DYNO_WS}/devel/setup.bash"
+if [ -f "$file" ]
+then
+  source "$file"
+fi
 
 ########################### ENVIROMENT #############################
 
@@ -85,6 +94,29 @@ da() {
 
 dn() {
   docker exec -it dyno-dev bash
+}
+
+
+########################### UTILITY  #############################
+
+# soruce bash
+sb() {
+  source ~/.bashrc
+}
+
+# edit bash
+eb() {
+  vim ~/.bashrc
+}
+
+# edit user
+eu() {
+  vim ~/Code/dyno-shell/dyno-user.sh
+}
+
+# edit ros
+er() {
+  vim ~/Code/dyno-shell/dyno-base.sh
 }
 
 
