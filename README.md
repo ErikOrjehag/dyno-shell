@@ -1,8 +1,8 @@
 # Setup
+clone to `/Code/dyno-shell`
 
-`cd docker`
+Add `source ~/Code/dyno-shell/dyno-user.sh` to .bashrc
 
-`./build.sh`
 
 # Using
 

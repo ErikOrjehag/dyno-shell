@@ -1,4 +1,7 @@
 ########################### WORKSPACES #############################
+if ! [ -z $CONTAINER_NAME ]; then
+  source /dyno_entrypoint.sh
+fi
 
 source /opt/ros/kinetic/setup.bash
 source ${DYNO_WS}/devel/setup.bash
@@ -46,7 +49,7 @@ dyno_create() {
   --user=$(id -u) \
   -e DISPLAY=$DISPLAY \
   -e QT_GRAPHICSSYSTEM=native \
-  -e CONTAINER_NAME=dyno-dev \
+  -e CONTAINER_NAME=dyno_dev \
   -e USER=$USER \
   --workdir=/home/$USER \
   -v "/tmp/.X11-unix:/tmp/.X11-unix" \
@@ -57,11 +60,19 @@ dyno_create() {
   -v "/home/$USER/:/home/$USER/" \
   --device=/dev/dri:/dev/dri \
   --name=dyno-dev \
-  dyno:dev
+  registry.gitlab.com/dynorobotics/dyno_dev
 }
 
 dyno_remove() {
   docker rm dyno-dev
+}
+
+dyno_pull() {
+  docker pull registry.gitlab.com/dynorobotics/dyno_dev
+}
+
+dyno_login() {
+  docker login registry.gitlab.com
 }
 
 ds() {
