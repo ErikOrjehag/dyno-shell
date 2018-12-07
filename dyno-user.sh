@@ -6,7 +6,8 @@ source ~/Code/dyno-shell/dyno-base.sh
 
 # Override with user specific settings.
 
-export DYNO_BASE=omnibot
+export DYNO_BASE=active_caster
+export DYNO_BASE_VARIANT=default
 export DYNO_JOY_TYPE=xbox360
 export DYNO_USE_ROS_CONTROL_FOR_BASE="true"
 export DYNO_DEFAULT_RAPP="dyno_common_rapps/waypoint_navigation"
