@@ -11,3 +11,8 @@ export DYNO_BASE_VARIANT=default
 export DYNO_JOY_TYPE=xbox360
 export DYNO_USE_ROS_CONTROL_FOR_BASE="true"
 export DYNO_DEFAULT_RAPP="dyno_common_rapps/waypoint_navigation"
+
+# export DYNO_DEV_IMAGE=registry.gitlab.com/dynorobotics/dyno_dev
+export DYNO_DEV_IMAGE=ros2
+
+# export MONO_PATH=/home/sam/ros2_dotnet_ws/install/bin
